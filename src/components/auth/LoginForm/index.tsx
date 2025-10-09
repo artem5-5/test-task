@@ -1,24 +1,63 @@
 import { Formik, Field, Form } from "formik";
 import css from "./index.module.scss";
+import { useLogin } from "../../../hooks/auth/useLogin";
 
 const LoginForm = () => {
+  const loginMutation = useLogin();
+
+  const isLoading = loginMutation.status === "pending";
+
   return (
     <Formik
-      initialValues={{ email: "", password: "" }}
-      onSubmit={async (values) => {
-        await new Promise((resolve) => setTimeout(resolve, 500));
-        console.log(values);
+      initialValues={{ username: "", password: "" }}
+      onSubmit={(values: { username: string; password: string }) => {
+        console.log("Form values:", values);
+        loginMutation.mutate(values);
       }}
     >
-      <Form className={css.container}>
-        <p className={css.lable}>Company</p>
-        <h1 className={css.descrition}>Sign in to your account to continue</h1>
-        <div className={css.fields}>
-          <Field name="email" type="text" className={css.field} />
-          <Field name="password" type="text" className={css.field} />
-        </div>
-        <button type="submit" className={css.button}>Log in</button>
-      </Form>
+      {({ values }) => (
+        <Form className={css.container}>
+          <div className={css.title}>
+            <h2 className={css.lable}>Company</h2>
+            <h1 className={css.description}>
+              Sign in to your account to continue
+            </h1>
+          </div>
+          <div className={css.fields}>
+            <Field
+              id="username"
+              name="username"
+              type="text"
+              placeholder="Email"
+              className={css.field}
+            />
+            <Field
+              id="password"
+              name="password"
+              type="password"
+              placeholder="Password"
+              className={css.field}
+            />
+          </div>
+          <button
+            type="submit"
+            className={css.button}
+            disabled={
+              isLoading || !values.username.trim() || !values.password.trim()
+            }
+            style={{
+              background:
+                isLoading || !values.username.trim() || !values.password.trim()
+                  ? "rgba(0, 0, 0, 0.04)"
+                  : "#1677FF",
+              color: "#FFFFFF",
+              border: "none"
+            }}
+          >
+            {isLoading ? "Loading..." : "Log in"}
+          </button>
+        </Form>
+      )}
     </Formik>
   );
 };

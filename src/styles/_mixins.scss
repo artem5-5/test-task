@@ -1,0 +1,22 @@
+@import '../../node_modules/include-media/dist/include-media';
+@import './vars';
+
+@mixin h1 {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+@mixin h2 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+@mixin title {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+@mixin description {
+  font-size: 16px;
+  font-weight: lighter;
+}

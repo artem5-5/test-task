@@ -1,21 +1,49 @@
+@import "./../../../styles/vars";
+@import "./../../../styles/mixins";
+
 .container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
   width: 440px;
   height: 372px;
   padding: 10px;
   opacity: 1;
   border-radius: 5px;
-  background-color: rgba(245, 245, 245, 1);
-  .lable {
-    size: 16px
+  background-color: $formBgColor;
+  justify-content: center;
+  text-align: center;
+  .title {
+    width: $loginFormContentWidth;
+    align-content: center;
+    .lable {
+      @include h2;
+      height: 64px;
+      align-content: center;
+    }
+    .description {
+      @include h1;
+      height: 64px;
+      align-content: center;
+    }
   }
-  .description {
-    size: 14px
-  }
-  .feilds {
-    .feild {
-        width: 400px;
+  .fields {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: $loginFormContentWidth;
+    .field {
+      width: $loginFormContentWidth;
+      height: $loginFieldHeight;
+      padding: 0px;
+      border: 1px solid;
+      border-color: $borderColor;
+      border-radius: $defaultBorderRadius;
     }
   }
   .button {
+    width: $loginFormContentWidth;
+    height: $loginFieldHeight;
+    border-radius: $defaultBorderRadius;
   }
 }

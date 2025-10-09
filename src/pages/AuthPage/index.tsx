@@ -1,7 +1,12 @@
 import LoginForm from "../../components/auth/LoginForm";
+import css from "./index.module.scss";
 
 const AuthPage = () => {
-  return <LoginForm />;
+  return (
+    <div className={css.wrapper}>
+      <LoginForm />
+    </div>
+  );
 };
 
 export default AuthPage;
