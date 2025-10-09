@@ -50,8 +50,11 @@ const LoginForm = () => {
                 isLoading || !values.username.trim() || !values.password.trim()
                   ? "rgba(0, 0, 0, 0.04)"
                   : "#1677FF",
-              color: "#FFFFFF",
-              border: "none"
+              color:
+                isLoading || !values.username.trim() || !values.password.trim()
+                  ? "#00000040"
+                  : "#FFFFFF",
+              border: "none",
             }}
           >
             {isLoading ? "Loading..." : "Log in"}
