@@ -1,0 +1,21 @@
+.container {
+  width: 440px;
+  height: 372px;
+  padding: 10px;
+  opacity: 1;
+  border-radius: 5px;
+  background-color: rgba(245, 245, 245, 1);
+  .lable {
+    size: 16px
+  }
+  .description {
+    size: 14px
+  }
+  .feilds {
+    .feild {
+        width: 400px;
+    }
+  }
+  .button {
+  }
+}
