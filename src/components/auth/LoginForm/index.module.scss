@@ -2,48 +2,43 @@
 @import "./../../../styles/mixins";
 
 .container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  width: 440px;
-  height: 372px;
-  padding: 10px;
-  opacity: 1;
-  border-radius: 5px;
-  background-color: $formBgColor;
-  justify-content: center;
-  text-align: center;
+  @include form-container;
+  height: $formHeight;
+  
   .title {
-    width: $loginFormContentWidth;
-    align-content: center;
-    .lable {
-      @include h2;
-      height: 64px;
-      align-content: center;
-    }
-    .description {
-      @include h1;
-      height: 64px;
-      align-content: center;
-    }
+    @include form-title;
   }
-  .fields {
+
+  .form {
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    width: $loginFormContentWidth;
-    .field {
-      width: $loginFormContentWidth;
-      height: $loginFieldHeight;
-      padding: 0px;
-      border: 1px solid;
-      border-color: $borderColor;
-      border-radius: $defaultBorderRadius;
-    }
+    gap: $spacing-md;
+    justify-content: center;
   }
-  .button {
+
+  .fields {
+    @include form-fields;
+  }
+
+  .input {
+    @include form-input;
+  }
+
+  .error {
     width: $loginFormContentWidth;
-    height: $loginFieldHeight;
-    border-radius: $defaultBorderRadius;
+    @include error-message;
+  }
+
+  .errorMessage {
+    @include field-error;
+  }
+
+  .button {
+    @include form-button;
+  }
+
+  .testInfo {
+    @include test-info;
   }
 }

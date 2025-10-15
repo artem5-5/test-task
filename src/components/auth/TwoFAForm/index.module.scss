@@ -1,0 +1,227 @@
+@import "./../../../styles/vars";
+@import "./../../../styles/mixins";
+
+.container {
+  @include form-container;
+  height: auto;
+  min-height: $formHeight;
+  
+  .title {
+    @include form-title;
+    
+    .description {
+      @include body;
+      height: auto;
+      min-height: 40px;
+    }
+  }
+
+  .form {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-md;
+    justify-content: center;
+  }
+
+  .codeInputs {
+    display: flex;
+    gap: $spacing-sm;
+    width: $loginFormContentWidth;
+    justify-content: center;
+    margin-bottom: $spacing-lg;
+  }
+
+  .codeField {
+    position: relative;
+    width: 50px;
+    height: 60px;
+    
+    .input {
+      width: 100%;
+      height: 100%;
+      border: 2px solid $borderColor;
+      border-radius: $defaultBorderRadius;
+      text-align: center;
+      font-size: 24px;
+      font-weight: 600;
+      background: transparent;
+      transition: all 0.3s ease;
+      
+      &:focus {
+        outline: none;
+        border-color: $primaryColor;
+        box-shadow: 0 0 0 3px rgba($primaryColor, 0.1);
+      }
+      
+      &.errorInput {
+        border-color: $errorColor;
+        box-shadow: 0 0 0 3px rgba($errorColor, 0.1);
+      }
+      
+      &.invalidCodeInput {
+        border-color: darken($errorColor, 10%);
+        background-color: lighten($errorBg, 2%);
+      }
+      
+      &:disabled {
+        background-color: #f5f5f5;
+        cursor: not-allowed;
+        opacity: 0.7;
+      }
+    }
+  }
+
+  .error {
+    width: $loginFormContentWidth;
+    @include error-message;
+    
+    &.invalidCode {
+      background: lighten($errorBg, 2%);
+      border-color: lighten($errorBorder, 5%);
+      color: darken($errorColor, 10%);
+    }
+  }
+
+  .invalidCodeHint {
+    @include small;
+    margin-top: $spacing-xs;
+    opacity: 0.8;
+  }
+
+  .successMessage {
+    width: $loginFormContentWidth;
+    @include success-message;
+  }
+
+  .errorMessage {
+    @include field-error;
+  }
+
+  .buttonGroup {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-md;
+    width: $loginFormContentWidth;
+    margin-bottom: $spacing-lg;
+  }
+
+  .button {
+    @include form-button;
+    flex: 1;
+    min-width: 120px;
+  }
+
+  .backButton {
+    @include form-button;
+    flex: 1;
+    min-width: 120px;
+    background: #6c757d;
+    color: white;
+    font-size: 13px;
+
+    &:hover:not(:disabled) {
+      background: #5a6268;
+      transform: translateY(-1px);
+    }
+
+    &:disabled {
+      background: $disabledColor;
+      color: $disabledText;
+    }
+  }
+
+  .newCodeSection {
+    width: $loginFormContentWidth;
+    text-align: center;
+    padding: $spacing-lg;
+    background: #f8fafc;
+    border-radius: $defaultBorderRadius;
+    margin-bottom: $spacing-lg;
+  }
+
+  .newCodeButton {
+    background: transparent;
+    border: 2px solid $primaryColor;
+    color: $primaryColor;
+    padding: 8px 16px;
+    border-radius: $defaultBorderRadius;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover:not(:disabled) {
+      background: $primaryColor;
+      color: white;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  .newCodeHint {
+    @include small;
+    margin: $spacing-xs 0 0 0;
+  }
+
+  .debugInfo {
+    width: $loginFormContentWidth;
+    margin-top: $spacing-lg;
+    padding: $spacing-md;
+    background: #f1f3f4;
+    border-radius: $defaultBorderRadius;
+    font-size: 11px;
+    color: $secondaryText;
+
+    div {
+      margin: 2px 0;
+    }
+  }
+
+  .testInfo {
+    @include test-info;
+  }
+}
+
+@include mobile {
+  .container {
+    width: 100%;
+    max-width: $formWidth;
+    height: auto;
+    padding: $spacing-md;
+    
+    .title,
+    .codeInputs,
+    .buttonGroup,
+    .newCodeSection,
+    .debugInfo,
+    .testInfo {
+      width: 100%;
+    }
+    
+    .codeInputs {
+      gap: $spacing-xs;
+    }
+    
+    .codeField {
+      width: 45px;
+      height: 55px;
+      
+      .input {
+        font-size: 20px;
+      }
+    }
+    
+    .buttonGroup {
+      flex-direction: column;
+    }
+    
+    .button,
+    .backButton {
+      width: 100%;
+    }
+  }
+}

@@ -1,10 +1,10 @@
-@import './../../styles/vars';
-@import './../../styles/mixins';
+@import "./../../styles/vars";
+@import "./../../styles/mixins";
 
-.wrapper {
-  display: flexbox;
+.page {
+  display: flex;
+  flex-direction: column;
   height: 100vh;
-  justify-items: center;
-  align-content: center;
-  
+  justify-content: center;
+  align-items: center;
 }

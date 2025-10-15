@@ -1,11 +1,33 @@
-$pageBgColor: rgba(245, 245, 245, 1);
-$formBgColor: rgba(255, 255, 255, 1);
-$borderColor: rgba(217, 217, 217, 1);
-$textColor: rgba(0, 0, 0, 0.88);
-$blue: #00c;
-$red: #c00;
+$formBgColor: #ffffff !default;
+$pageBgColor: #F5F5F5 !default;
+$borderColor: #e2e8f0 !default;
+$primaryColor: #3b82f6 !default;
+$primaryDark: #1d4ed8 !default;
+$errorColor: #ef4444 !default;
+$errorBg: #fee !default;
+$errorBorder: #fcc !default;
+$successColor: #10b981 !default;
+$successBg: #f0fdf4 !default;
+$successBorder: #bbf7d0 !default;
+$disabledColor: #d1d5db !default;
+$disabledText: #6b7280 !default;
+$textColor: #333333 !default;
+$secondaryText: #666666 !default;
 
-$defaultFontFamily: 'Helvetica', 'Arial', sans-serif;
-$defaultBorderRadius: 5px;
-$loginFormContentWidth: 376px;
-$loginFieldHeight: 40px;
+$loginFormContentWidth: 400px !default;
+$loginFieldHeight: 44px !default;
+$defaultBorderRadius: 4px !default;
+$formWidth: 440px !default;
+$formHeight: 400px !default;
+
+$spacing-xs: 4px !default;
+$spacing-sm: 8px !default;
+$spacing-md: 10px !default;
+$spacing-lg: 15px !default;
+$spacing-xl: 20px !default;
+
+$mobile: 480px !default;
+$tablet: 768px !default;
+$desktop: 1024px !default;
+
+$fontFamily: 'Helvetica', 'Arial', sans-serif !default;
