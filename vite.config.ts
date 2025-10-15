@@ -7,7 +7,13 @@ export default defineConfig({
     react({
       babel: {
         plugins: [['babel-plugin-react-compiler']],
+
       },
     }),
   ],
+  base: 'test-task',
+  build: {
+    outDir: 'dist',
+    sourcemap: true
+  }
 })
